@@ -1,18 +1,18 @@
 pyquasirand
 ===========
 python binding for GSL quasi-random number generation routines
-##Dependancies
+####Dependancies
 Requires SWIG, numpy and BLAS.  
 Presumably should work on Unix-like systems.  
-##Installation
-standard setup.py script
-##Usage
-Usage is pretty straightforward. The module contains a
-single function 'generate' which accepts 3 arguments: dimension of points
-to generate, number of points to generate and generator type. See test
-file or specify arbitrary string to see posible generator values. The function will
-return 2d numpy array containing a point in every row.
-##License
+####Installation
+Standard setup.py script. So `#python setup.py install` should do it. 
+
+However, you may wish to avoid messing up your system. In this case add `--user` option to install to `~/.local` or `--prefix some/place` to install wherever you want. Beware to add the generated `site-packages` directory to your `PYTHONPATH`.  
+
+If you don't want to touch path, virtualenv is another option. It's probably a good idea to use `--system-site-package` option if you want to be able to use system-wide packages for some reason (e.g. not to install numpy, etc. from scratch).
+####Usage
+Take a look at 'test.py' file to see a usage example.
+####License
 (C) 2014 Lukashev Sergey <lukashev.s@ya.ru>
 
 Permission to use, copy, modify, and/or distribute this software for any purpose
