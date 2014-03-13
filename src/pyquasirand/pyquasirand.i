@@ -36,7 +36,7 @@
             PyErr_SetString(PyExc_ValueError, "ndims must be positive");
             goto error;
         }
-        if(npoints <=0){
+        if(npoints < 0){
             PyErr_SetString(PyExc_ValueError, "npoints must be positive");
             goto error;
         }
@@ -45,6 +45,8 @@
         dims[0] = npoints;
         dims[1] = ndims;
         PyObject* result = PyArray_EMPTY(2, dims, NPY_DOUBLE, 0);
+        if(npoints == 0)
+            return result;
         double* buffer = (double*) PyArray_DATA(result);
         int i;
         gsl_qrng * q = gsl_qrng_alloc (gen_type, ndims);
